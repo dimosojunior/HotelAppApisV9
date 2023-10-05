@@ -1,0 +1,184 @@
+background: #075e54;
+background-color: #075e54;
+{% extends 'TemplatesApp/base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Account</title>
+
+    <style type="text/css">
+      
+.form-control{
+  padding: 10px;
+  border-radius:10px;
+  border:1px solid green;
+
+}
+select{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border:1px solid green;
+
+}
+
+::placeholder{
+  color: red;
+
+}
+    </style>
+    
+  </head>
+  <body>
+    
+
+
+
+{% include 'TemplatesApp/sideBar.html' %}
+
+
+
+
+<div class="main-panel">
+          <div class="content-wrapper">
+
+
+
+
+
+
+
+
+            <div class="page-header">
+              
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    
+                      {% if messages %}
+    {% for message in messages %}
+     
+
+          <div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-color: green;">
+  <strong style="font-size: 16px;color: white;">{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="color: red;"></button>
+</div>
+    {% endfor %}
+  {% endif %}
+                  
+
+
+
+                  </li>
+                 
+                </ol>
+              </nav>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <!-- mwanzo wa row -->
+            <div class="row">
+
+
+
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Login form</h4>
+                    <p class="card-description"></p>
+                    <form class="forms-sample" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+
+
+                     
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">User Codes</label>
+                        <input type="text" name="UserCodes" class="form-control" id="exampleInputEmail1" placeholder="User Codes" />
+                      </div>
+
+                       <div class="form-group">
+                        <label for="exampleInputUsername1">Email</label>
+                        
+                        <input type="email" name="email" class="form-control" id="exampleInputUsername1" placeholder="Email" />
+                      </div>
+
+                     
+
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required />
+                      </div>
+
+                     
+
+
+                      
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+                     
+                      <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+                      <button type="reset" class="btn btn-light">Reset</button>
+
+
+                      <p>Forgot password? <a href="{% url 'reset_password' %}">Change Password</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+</div>
+ <!-- mwisho wa row -->
+
+
+
+
+
+
+    
+   </div>
+ </div>
+  </body>
+</html>
+
+
+{% endblock %}
